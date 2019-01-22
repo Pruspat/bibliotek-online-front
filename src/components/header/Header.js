@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 // import './Header.css';
 
 class Header extends Component {
+    constructor(props){
+        super(props);
+    }
     render() {
         return (
             <div className="row">
@@ -11,7 +14,7 @@ class Header extends Component {
                             <a className="nav-link" href="#">Strona główna</a>
                         </li>
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Spis książek</a>
+                            {/*<a className="nav-link" href="#" onClick={this.props.setPage("login")}>Spis książek</a>*/}
                         </li>
                         <li className="nav-item active">
                             <a className="nav-link" href="#">Kontakt</a>

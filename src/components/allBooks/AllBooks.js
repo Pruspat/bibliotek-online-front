@@ -12,20 +12,27 @@ class AllBooks extends Component {
 
     componentDidMount() {
         axios.get('http://localhost:8080/book/list').then((resp)=>{
-            console.log(resp);
             this.setState({books:resp.data});
+            console.log(this.state.books);
         });
     }
 
 
 
     render() {
-        return (
+        if(this.state.books){
+            return (
 
-            <div className="row d-block">
-                <AllBooksItem/>
-            </div>
-        );
+                <div className="row d-block">
+                    {this.state.books.map((item)=>
+                    <AllBooksItem book={item}/>
+                    )}
+                </div>
+            );
+        }else{
+             return <div>Brak książek</div>;
+        }
+
     }
 }
 
