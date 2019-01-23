@@ -10,7 +10,7 @@ class Borrow extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8080/borrow/list').then((resp)=>{
+        axios.get('http://localhost:8080/borrow/list/1').then((resp)=>{
             this.setState({borrows:resp.data});
             console.log(this.state.borrows);
         });

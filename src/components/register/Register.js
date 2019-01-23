@@ -6,16 +6,53 @@ class Register extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {books: []};
+
+        this.state = {
+            form:{}
+        }
+
+        this.handleSubmit=this.handleSubmit.bind(this);
+        this.handleChange=this.handleChange.bind(this);
+
     }
 
-    componentDidMount() {
-        axios.get('http://localhost:8080/book/list').then((resp) => {
-            console.log(resp);
-            this.setState({books: resp.data});
-        });
+
+    handleSubmit(){
+        let data =  this.state.form;
+        let result ={
+            login : data.login,
+            email : data.email,
+            password : data.haslo,
+            name : "",
+            surname : "",
+            sex : "",
+            age : "",
+            address : "",
+            role : "user"
+
+        }
+
+
+        fetch('http://localhost:8080/customer/add', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify(result)
+        })
     }
 
+
+
+    handleChange(ev){
+        let data = this.state.form;
+        var id = ev.target.name;
+        data[id] = ev.target.value;
+        this.setState({form:data});
+        console.log(data);
+    }
 
     render() {
         return (
@@ -25,67 +62,73 @@ class Register extends Component {
                         <div className="card card-signin">
                             <div className="card-body">
                                 <h5 className="card-title text-center">Rejestracja</h5>
-                                <form className="d-flex flex-column">
+                                <form className="d-flex flex-column" onSubmit={this.handleSubmit}>
                                     <div className="form-row">
                                         <div className="form-group col-md-6">
                                             <label htmlFor="inputEmail4">Email</label>
-                                            <input type="email" className="form-control" id="email"
-                                                   placeholder="Email"/>
+                                            <input name="email" type="email" className="form-control" id="email"
+                                                   placeholder="Email" onChange={this.handleChange}/>
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label htmlFor="inputPassword4">Hasło</label>
-                                            <input type="password" className="form-control" id="password"
-                                                   placeholder="Password"/>
+                                            <input name="haslo" type="password" className="form-control" id="password"
+                                                   placeholder="Password" onChange={this.handleChange}/>
                                         </div>
                                     </div>
                                     <div className="form-row">
                                         <div className="form-group col-md-6">
                                             <label htmlFor="inputEmail4">Imię</label>
-                                            <input type="email" className="form-control" id="name"
-                                                   placeholder="Jan"/>
+                                            <input name="imie" type="text" className="form-control" id="name"
+                                                   placeholder="Jan" onChange={this.handleChange}/>
+                                        </div>
+                                        <div className="form-group col-md-6">
+                                            <label htmlFor="inputEmail4">Login</label>
+                                            <input name="login" type="text" className="form-control" id="login"
+                                                   placeholder="login" onChange={this.handleChange}/>
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label htmlFor="inputPassword4">Nazwisko</label>
-                                            <input type="text" className="form-control" id="surname"
-                                                   placeholder="Kowalski"/>
+                                            <input name="nazwisko" type="text" className="form-control" id="surname"
+                                                   placeholder="Kowalski" onChange={this.handleChange}/>
                                         </div>
                                     </div>
                                     <div className="form-row">
                                         <div className="form-group col-md-6">
                                             <label htmlFor="inputCity">Miejscowość</label>
-                                            <input type="text" className="form-control" id="city"/>
+                                            <input name="city" type="text" className="form-control" id="city" onChange={this.handleChange}/>
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label htmlFor="inputState">Ulica</label>
-                                            <input type="text" className="form-control" id="street"/>
+                                            <input name="street" type="text" className="form-control" id="street" onChange={this.handleChange}/>
                                         </div>
                                     </div>
                                     <div className="form-row">
                                         <div className="form-group col-md-4">
                                             <label htmlFor="inputZip">Nr domu</label>
-                                            <input type="text" className="form-control" id="number"/>
+                                            <input name="nr" type="text" className="form-control" id="number" onChange={this.handleChange}/>
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label htmlFor="inputZip">Kod pocztowy</label>
-                                            <input type="text" className="form-control" id="postalCode"/>
+                                            <input name="postal" type="text" className="form-control" id="postalCode" onChange={this.handleChange}/>
                                         </div>
                                     </div>
                                     <div className="form-row">
                                         <div className="form-group col-md-4">
                                             <label htmlFor="inputZip">Płeć</label>
-                                            <input type="text" className="form-control" id="sex"/>
+                                            <input name="sex" type="text" className="form-control" id="sex" onChange={this.handleChange}/>
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label htmlFor="inputZip">Wiek</label>
-                                            <input type="text" className="form-control" id="age"/>
+                                            <input name="age" type="text" className="form-control" id="age" onChange={this.handleChange}/>
                                         </div>
                                     </div>
-                                    <button type="submit" className="btn btn-primary">Zarejestruj</button>
+                                    <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Zarejestruj</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         );
     }
