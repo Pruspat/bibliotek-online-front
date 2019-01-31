@@ -20,20 +20,20 @@ class Register extends Component {
     handleSubmit(){
         let data =  this.state.form;
         let result ={
-            login : data.login,
             email : data.email,
-            password : data.haslo,
-            name : "",
-            surname : "",
-            sex : "",
-            age : "",
-            address : "",
-            role : "user"
-
+            password : data.password,
+            name : data.name,
+            surname : data.surname,
+            sex : data.sex,
+            age : data.age,
+            city: data.city,
+            street: data.street,
+            homeNr: data.homeNr,
+            postalCode:data.postalCode,
         }
+        console.log(result);
 
-
-        fetch('http://localhost:8080/customer/add', {
+        fetch('http://localhost:8080/customer/register', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -51,7 +51,6 @@ class Register extends Component {
         var id = ev.target.name;
         data[id] = ev.target.value;
         this.setState({form:data});
-        console.log(data);
     }
 
     render() {
@@ -64,31 +63,29 @@ class Register extends Component {
                                 <h5 className="card-title text-center">Rejestracja</h5>
                                 <form className="d-flex flex-column" onSubmit={this.handleSubmit}>
                                     <div className="form-row">
+
                                         <div className="form-group col-md-6">
                                             <label htmlFor="inputEmail4">Email</label>
                                             <input name="email" type="email" className="form-control" id="email"
                                                    placeholder="Email" onChange={this.handleChange}/>
                                         </div>
+
                                         <div className="form-group col-md-6">
                                             <label htmlFor="inputPassword4">Hasło</label>
-                                            <input name="haslo" type="password" className="form-control" id="password"
+                                            <input name="password" type="text" className="form-control" id="password"
                                                    placeholder="Password" onChange={this.handleChange}/>
                                         </div>
                                     </div>
+
                                     <div className="form-row">
                                         <div className="form-group col-md-6">
                                             <label htmlFor="inputEmail4">Imię</label>
-                                            <input name="imie" type="text" className="form-control" id="name"
+                                            <input name="name" type="text" className="form-control" id="name"
                                                    placeholder="Jan" onChange={this.handleChange}/>
                                         </div>
                                         <div className="form-group col-md-6">
-                                            <label htmlFor="inputEmail4">Login</label>
-                                            <input name="login" type="text" className="form-control" id="login"
-                                                   placeholder="login" onChange={this.handleChange}/>
-                                        </div>
-                                        <div className="form-group col-md-6">
                                             <label htmlFor="inputPassword4">Nazwisko</label>
-                                            <input name="nazwisko" type="text" className="form-control" id="surname"
+                                            <input name="surname" type="text" className="form-control" id="surname"
                                                    placeholder="Kowalski" onChange={this.handleChange}/>
                                         </div>
                                     </div>
@@ -105,11 +102,11 @@ class Register extends Component {
                                     <div className="form-row">
                                         <div className="form-group col-md-4">
                                             <label htmlFor="inputZip">Nr domu</label>
-                                            <input name="nr" type="text" className="form-control" id="number" onChange={this.handleChange}/>
+                                            <input name="homeNr" type="text" className="form-control" id="number" onChange={this.handleChange}/>
                                         </div>
                                         <div className="form-group col-md-4">
                                             <label htmlFor="inputZip">Kod pocztowy</label>
-                                            <input name="postal" type="text" className="form-control" id="postalCode" onChange={this.handleChange}/>
+                                            <input name="postalCode" type="text" className="form-control" id="postalCode" onChange={this.handleChange}/>
                                         </div>
                                     </div>
                                     <div className="form-row">
