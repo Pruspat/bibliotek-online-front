@@ -8,55 +8,65 @@ import Register from "./components/register/Register";
 import Borrow from "./components/borrow/Borrow";
 import AllBooks from "./components/allBooks/AllBooks";
 import Contact from "./components/contact/Contact";
-import AddAuthor from "./author/AddAuthor";
+import AddAuthor from "./components/author/AddAuthor";
 
 class App extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            routing: "allBooks"
+            allBooks:null,
+            login:null,
+            contact:null,
+            borrow:null,
+            addBook:1
         };
         this.setPage = this.setPage.bind(this);
     }
 
-    setPage(page) {
-        this.setState({routing: page});
+
+    setPage(args){
+        this.state = args;
+
+        // console.log(args);
+        console.log(this.state);
+        console.log("app");
     }
 
+
     render() {
-        if (this.state.routing === "allBooks") {
+        if (this.state.login !== null) {
             return (
                 <div className="container">
                     <Header setPage={this.setPage}/>
                     <AllBooks/>
                     <Footer/>
                 </div>);
-        } else if (this.state.routing === "login") {
+        } else if (this.state.login !== null) {
             return (
                 <div className="container">
-                    <Header/>
+                    <Header setPage={this.setPage}/>
                     <Login/>
                     <Footer/>
                 </div>);
-        }else if(this.state.routing === "kontakt"){
+        }else if(this.state.contact !== null){
             return (
             <div className="container">
-                <Header/>
+                <Header setPage={this.setPage}/>
                 <Contact/>
                 <Footer/>
             </div>);
-        }else if(this.state.routing === "borrow"){
+        }else if(this.state.borrow !== null){
             return (
             <div className="container">
-                <Header/>
+                <Header setPage={this.setPage}/>
                 <Borrow/>
                 <Footer/>
             </div>);
-        }else if(this.state.routing === "addBook"){
+        }else if(this.state.addBook !==  null){
             return (
                 <div className="container">
-                    <Header/>
+                    <Header getPage={this.setPage}/>
                     <AddBook/>
                     <Footer/>
                 </div>);
