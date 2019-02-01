@@ -14,7 +14,7 @@ class Contact extends Component {
                 <div className="row d-block">
                     <div>
                         <h2>Info</h2>
-                        <p>Aplikacja została stworzona na cel projektu Modelowanie i hrutownie baz danych</p>
+                        <p>Aplikacja została stworzona na cel projektu ZTAI</p>
                         <p>Przygotował: Patryk Prus</p>
                         <h2>Użyte technologie</h2>
                         <ul>

@@ -4,25 +4,12 @@ import React, { Component } from 'react';
 class Header extends Component {
     constructor(props){
         super(props);
-        this.state ={
-            allBooks: null,contact:null,login:null,borrow:null,addBook:null
-        };
-        this.setPage=this.setPage.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
-    setPage(e) {
-
-        if(e.target.id === "allBooks") {
-            this.state = {allBooks: 1,contact:null,login:null,borrow:null,addBook:null};
-            console.log(e.target.id);
-        }
-        else if(e.target.id === "contact"){
-            this.state = {allBooks: null,contact:1,login:null,borrow:null,addBook:null};
-            console.log(e.target.id + "header");
-        }
-
+    handleClick(e){
+        this.props.setPage(e.target.id);
     }
-
 
     render() {
         if(true){
@@ -31,19 +18,25 @@ class Header extends Component {
                     <nav className="navbar navbar-expand-sm bg-primary navbar-dark w-100 d-flex justify-content-between rounded-top">
                         <ul className="navbar-nav">
                             <li className="nav-item active">
-                                <a className="nav-link" href="#">Strona główna</a>
+                                <a id="Main" className="nav-link" href="#" onClick={this.handleClick}>Strona główna</a>
                             </li>
                             <li className="nav-item active">
-                                <a id="allBooks" className="nav-link" href="#" onClick={this.setPage}>Spis książek</a>
+                                <a id="AllBooks" className="nav-link" href="#" onClick={this.handleClick}>Spis książek</a>
                             </li>
                             <li className="nav-item active">
-                                <a className="nav-link" href="#">Historia wypożyczeń</a>
+                                <a id="Borrow" className="nav-link" href="#" onClick={this.handleClick}>Lista wpożyczeń</a>
                             </li>
                             <li className="nav-item active">
-                                <a id="contact" className="nav-link" href="#" onClick={this.props.setPage} >Kontakt</a>
+                                <a id="AddBook" className="nav-link" href="#" onClick={this.handleClick}>Dodaj książkę</a>
+                            </li>
+                            <li className="nav-item active">
+                                <a id="Contact" className="nav-link" href="#" onClick={this.handleClick} >Kontakt</a>
+                            </li>
+                            <li className="nav-item active">
+                                <a id="Register" className="nav-link" href="#" onClick={this.handleClick} >Rejestracja</a>
                             </li>
                         </ul>
-                        <button className="btn btn-outline-warning my-2 my-sm-0" type="submit">Zaloguj się</button>
+                        <button className="btn btn-outline-warning my-2 my-sm-0" type="submit" id="Login" onClick={this.handleClick}>Zaloguj się</button>
                     </nav>
                 </div>
             );
