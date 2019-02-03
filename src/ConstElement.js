@@ -27,32 +27,32 @@ class ConstElement extends Component {
                 <div className="container">
                     <Login/>
                 </div>);
-        }else if(this.props.page === "Contact"){
+        } else if (this.props.page === "Contact") {
             return (
                 <div className="container">
                     <Contact/>
                 </div>);
-        }else if(this.props.page === "Borrow"){
+        } else if (this.props.page === "Borrow") {
             return (
                 <div className="container">
                     <Borrow/>
                 </div>);
-        }else if(this.props.page === "Register"){
+        } else if (this.props.page === "Register") {
             return (
                 <div className="container">
                     <Register/>
                 </div>);
-        } else if(this.props.page === "AddBook"){
+        } else if (this.props.page === "AddBook") {
             return (
                 <div className="container">
                     <AddBook/>
                 </div>);
-        }else if(this.props.page === "Main"){
+        } else if (this.props.page === "Main") {
             return (
                 <div className="container">
                     Strona w przebudowie
                 </div>);
-        }else if(this.props.page === "Register"){
+        } else if (this.props.page === "Register") {
             return (
                 <div className="container">
                     <Register/>

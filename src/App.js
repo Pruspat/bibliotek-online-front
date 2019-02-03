@@ -26,7 +26,7 @@ class App extends Component {
 
     render() {
         return(
-            <div>
+            <div className="container">
             <Header setPage={this.setPage}/>
             <ConstElement page={this.state.currentPage}/>
             <Footer/>
