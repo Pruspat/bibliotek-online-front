@@ -9,23 +9,15 @@ class Login extends Component {
 
         this.state = {
             form:{},
-            token: null,
-            resp: null
-        };
+            resp:null
+        }
 
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handleChange=this.handleChange.bind(this);
-        this.setAppState = this.setAppState.bind(this);
+
     }
 
-    setAppState(){
-        this.setState({token:"Bearer "+ this.state.resp});
-        document.cookie="token=Bearer " + this.state.resp;
-        console.log(this.state.resp);
-    }
-
-    handleSubmit(e){
-        e.preventDefault();
+    handleSubmit(){
         let data =  this.state.form;
         let result ={
             email : data.email,
@@ -36,20 +28,16 @@ class Login extends Component {
         fetch('http://localhost:8080/login', {
             method: 'POST',
             headers: {
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Authorization' : ''
             },
             body: JSON.stringify(result)
-        }).then((resp) => {
-           // this.setState({resp: resp.data});
-            // console.log(resp.getResponseHeader('Authorization'));
-            // this.setAppState(this.state.resp);
-            { resp.headers.forEach(function(val, key) { console.log(key + ' -> ' + val); }); }
-        });
+        }).then((resp)=> {
+            this.setState({resp: resp.data});
+            this.props.setAppState(this.state.resp);
+    });
 
     }
-
-
-
 
 
     handleChange(ev){

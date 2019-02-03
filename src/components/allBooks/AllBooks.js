@@ -7,21 +7,20 @@ class AllBooks extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            books: []
-        };
+        this.state = {books: []};
     }
 
     componentDidMount() {
         var headers = {
+            'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcnVzcGF0QGdtYWlsLmNvbSIsImV4cCI6MTU0OTgyNDgyMn0.VVpecT_OcYKbFKgUykxoCmbLtm9CVIwm6BkH_GrfDmjrXH6iJ_s_4Rfj8_Lw7aykChBcoTD-qVaORKBlfkF2ug'
-        };
+            'Authorization' : 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJwcnVzcGF0QGdtYWlsLmNvbSIsImV4cCI6MTU0OTg3MzA1N30.GCUjJAi5Xi1Lgx1P-ToTozHyw5axYkDDUj8-Jt500J6N8be19Op1N4vEOl-hlzde9dBF6An8-qEGq1vO9aS_AQ'
+        }
 
-        axios({ method: 'POST',url: 'http://localhost:8080/book/all', headers: headers}).then((resp)=>{
+        axios.post('http://localhost:8080/book/all',{headers:headers}).then((resp)=>{
             this.setState({books:resp.data});
-
-    });
+            console.log(this.state.books);
+        });
     }
 
 
