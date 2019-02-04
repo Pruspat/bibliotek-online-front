@@ -8,7 +8,8 @@ class Register extends Component {
         super(props);
 
         this.state = {
-            form:{}
+            form:{},
+            token:document.cookie.split('=')
         }
 
         this.handleSubmit=this.handleSubmit.bind(this);
@@ -38,7 +39,7 @@ class Register extends Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                "Access-Control-Allow-Origin": "*",
+                'Authentication':  'Bearer ' + this.state.token[1]
             },
             body: JSON.stringify(result)
         })
@@ -67,13 +68,13 @@ class Register extends Component {
                                         <div className="form-group col-md-6">
                                             <label htmlFor="inputEmail4">Email</label>
                                             <input name="email" type="email" className="form-control" id="email"
-                                                   placeholder="Email" onChange={this.handleChange}/>
+                                                   placeholder="Email" onChange={this.handleChange} required />
                                         </div>
 
                                         <div className="form-group col-md-6">
                                             <label htmlFor="inputPassword4">Hasło</label>
                                             <input name="password" type="text" className="form-control" id="password"
-                                                   placeholder="Password" onChange={this.handleChange}/>
+                                                   placeholder="Password" onChange={this.handleChange} required />
                                         </div>
                                     </div>
 
@@ -81,12 +82,12 @@ class Register extends Component {
                                         <div className="form-group col-md-6">
                                             <label htmlFor="inputEmail4">Imię</label>
                                             <input name="name" type="text" className="form-control" id="name"
-                                                   placeholder="Jan" onChange={this.handleChange}/>
+                                                   placeholder="Jan" onChange={this.handleChange} required />
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label htmlFor="inputPassword4">Nazwisko</label>
                                             <input name="surname" type="text" className="form-control" id="surname"
-                                                   placeholder="Kowalski" onChange={this.handleChange}/>
+                                                   placeholder="Kowalski" onChange={this.handleChange} required />
                                         </div>
                                     </div>
                                     <div className="form-row">
@@ -119,7 +120,7 @@ class Register extends Component {
                                             <input name="age" type="text" className="form-control" id="age" onChange={this.handleChange}/>
                                         </div>
                                     </div>
-                                    <button type="submit" className="btn btn-primary" onClick={this.handleSubmit}>Zarejestruj</button>
+                                    <button type="submit" className="btn btn-primary">Zarejestruj</button>
                                 </form>
                             </div>
                         </div>

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class Footer extends Component {
     render() {
         return (
-            <div className="row bg-primary d-flex justify-content-center text-white rounded-bottom">
+            <div className="container bg-primary d-flex justify-content-center text-white rounded-bottom">
                 Patryk Prus Praca inżynierska Bibliotek Online
             </div>
         );

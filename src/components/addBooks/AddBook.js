@@ -8,7 +8,8 @@ class AddBook extends Component {
         super(props);
 
         this.state = {
-            form:{}
+            form:{},
+            token:document.cookie.split('=')
         }
 
         this.handleSubmit=this.handleSubmit.bind(this);
@@ -26,15 +27,18 @@ class AddBook extends Component {
             isbnNr : data.isbnNr
         }
 
-        fetch('http://localhost:8080/book/add', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Origin": "*",
-            },
-            body: JSON.stringify(result)
-        })
+        var headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization':  'Bearer ' + this.state.token[1]
+        }
+
+
+        axios.post('http://localhost:8080/book/add',{}, {headers: headers}).then(resp => {
+            this.setState({books: resp.data});
+            console.log(this.state.books);
+        });
+
     }
 
     handleChange(ev){
@@ -43,6 +47,7 @@ class AddBook extends Component {
         data[id] = ev.target.value;
         this.setState({form:data});
         console.log(data);
+        console.log(this.state.token[1]);
     }
 
 
@@ -56,24 +61,24 @@ class AddBook extends Component {
                         <div className="d-flex">
                             <div className="form-group">
                                 <label htmlFor="title">Podaj Tytuł</label>
-                                <input name="title" type="text" className="form-control" id="title" placeholder="Zemsta"/>
+                                <input name="title" type="text" className="form-control" id="title" placeholder="Zemsta" required />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="type">Podaj gatunek</label>
-                                <input name="type" type="text" className="form-control" id="type" placeholder="Komedia"/>
+                                <input name="type" type="text" className="form-control" id="type" placeholder="Komedia" required />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="isbn">Podaj nr isbn</label>
-                                <input name="isbn" type="text" className="form-control" id="isbn" placeholder="0123456789123"/>
+                                <input name="isbn" type="text" className="form-control" id="isbn" placeholder="0123456789123" required pattern="[0-9]{13}"/>
                             </div>
                         </div>
                         <div className="form-group">
                             <label htmlFor="isbn">Podaj imię autora</label>
-                            <input name="name" type="text" className="form-control" id="isbn" placeholder="Aleksander"/>
+                            <input name="name" type="text" className="form-control" id="isbn" placeholder="Aleksander" required />
                         </div>
                         <div className="form-group">
                             <label htmlFor="isbn">Podaj nazwisko autora</label>
-                            <input name="surname" type="text" className="form-control" id="isbn" placeholder="Fredro"/>
+                            <input name="surname" type="text" className="form-control" id="isbn" placeholder="Fredro" required />
                         </div>
 
                         <button type="submit" className="btn btn-primary "onClick={this.handleSubmit}>Dodaj</button>

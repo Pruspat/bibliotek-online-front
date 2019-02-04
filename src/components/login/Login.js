@@ -22,29 +22,25 @@ class Login extends Component {
         let result ={
             email : data.email,
             password : data.password,
-        }
-        console.log(result);
+        };
 
-        fetch('http://localhost:8080/login', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Authorization' : ''
-            },
-            body: JSON.stringify(result)
-        }).then((resp)=> {
-            this.setState({resp: resp.data});
-            this.props.setAppState(this.state.resp);
-    });
+        var headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        };
 
+        axios.post('http://localhost:8080/login',result, {headers: headers}).then(resp => {
+            document.cookie='token='+resp.data;
+            console.log(resp);
+        });
     }
 
 
     handleChange(ev){
         let data = this.state.form;
-        var id = ev.target.name;
+        let id = ev.target.name;
         data[id] = ev.target.value;
-        this.setState({form:data});
+        // this.setState({form:data});
     }
 
 
@@ -62,7 +58,7 @@ class Login extends Component {
                                     <div className="form-label-group mb-2">
 
                                         <label htmlFor="inputEmail4">Email</label>
-                                         <input name="email" type="email" className="form-control" id="email"placeholder="Email" onChange={this.handleChange}/>
+                                         <input name="email" type="email" className="form-control" id="email"placeholder="Email" onChange={this.handleChange} required/>
 
                                     </div>
 
@@ -72,7 +68,7 @@ class Login extends Component {
 
                                     </div>
 
-                                    <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onClick={this.handleSubmit}>
+                                    <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
                                         Zaloguj się
                                     </button>
                                 </form>

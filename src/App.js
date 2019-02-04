@@ -18,9 +18,7 @@ class App extends Component {
 
 
     setPage(page){
-        console.log("app: " + page);
         this.setState({currentPage: page})
-        console.log("stan app " + this.state.currentPage);
     }
 
 
