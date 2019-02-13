@@ -10,12 +10,20 @@ class Header extends Component {
             isLogin: false
         }
         this.handleClick = this.handleClick.bind(this);
+        this.logout = this.logout.bind(this);
     }
 
     handleClick(e) {
         this.props.setPage(e.target.id);
-        this.setState({isLogin: document.cookie});
-        // console.log(Cookies.get());
+        if(document.cookie !== "token="){
+            this.setState({isLogin: document.cookie});
+        }
+    }
+
+    logout(){
+        document.cookie = "token =";
+        this.setState({isLogin: true})
+        window.location.reload(true);
     }
 
     render() {
@@ -77,7 +85,7 @@ class Header extends Component {
                         </li>
                     </ul>
 
-                    <button className="btn btn-outline-warning my-2 my-sm-0" type="submit" onClick={this.handleClick}>Wyloguj się</button>
+                    <button className="btn btn-outline-warning my-2 my-sm-0" type="submit" onClick={this.logout}>Wyloguj się</button>
 
                 </nav>
             );

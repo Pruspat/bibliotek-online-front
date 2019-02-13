@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import BorrowItem from "./BorrowItem";
-import AllBooksItem from "../allBooks/AllbooksItem";
 
 class Borrow extends Component {
     constructor(props) {
@@ -21,7 +20,7 @@ class Borrow extends Component {
 
         console.log('Bearer ' + this.state.token[1]);
 
-        axios.post('http://localhost:8080/book/all',{},{headers:headers}).then(resp=>{
+        axios.post('http://localhost:8080/borrow/list',{},{headers:headers}).then(resp=>{
             this.setState({borrows:resp.data});
             console.log(this.state.borrows);
         });
