@@ -23,7 +23,7 @@ class AddAuthor extends Component {
             surname : data.surname,
         }
 
-        fetch('http://localhost:8080/author/add', {
+        fetch('http://localhost:8081/author/add', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

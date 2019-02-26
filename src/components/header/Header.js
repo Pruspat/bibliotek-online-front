@@ -7,19 +7,27 @@ class Header extends Component {
     constructor(props) {
         super(props);
         this.state ={
-            isLogin: false
+            tmp: null,
+            isLogin:null
         }
         this.handleClick = this.handleClick.bind(this);
     }
 
+    componentDidMount() {
+        // this.setState({tmp:document.cookie.split('=')});
+        // // this.setState({isLogin: this.state.tmp.split(' ')});
+        // console.log(document.cookie.split('='));
+
+    }
+
     handleClick(e) {
         this.props.setPage(e.target.id);
-        this.setState({isLogin: document.cookie});
         // console.log(Cookies.get());
+        // console.log(this.state.isLogin[0]);
     }
 
     render() {
-        if(this.state.isLogin === false) {
+        if(this.state.isLogin !== 'Bearer') {
             return (
                 <div className="row">
                     <nav

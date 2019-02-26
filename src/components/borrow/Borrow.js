@@ -19,9 +19,8 @@ class Borrow extends Component {
             'Authorization' : 'Bearer ' + this.state.token[1]
         };
 
-        console.log('Bearer ' + this.state.token[1]);
 
-        axios.post('http://localhost:8080/book/all',{},{headers:headers}).then(resp=>{
+        axios.post('http://localhost:8080/borrow/list/'+23,{},{headers:headers}).then(resp=>{
             this.setState({borrows:resp.data});
             console.log(this.state.borrows);
         });
