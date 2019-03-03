@@ -30,8 +30,8 @@ class AddBook extends Component {
             },
             authorEntityList: [
                 {
-                authorName: data.name,
-                authorSurname: data.surname
+                name: data.name,
+                surname: data.surname
                 }
             ]
         }

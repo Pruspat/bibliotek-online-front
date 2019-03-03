@@ -54,6 +54,9 @@ class Header extends Component {
                             <li className="nav-item active">
                                 <a id="Register" className="nav-link" onClick={this.handleClick}>Rejestracja</a>
                             </li>
+                            <li className="nav-item active">
+                                <a id="RemoveBook" className="nav-link" onClick={this.handleClick}>Usuń książkę</a>
+                            </li>
                         </ul>
 
                         <button className="btn btn-outline-warning my-2 my-sm-0" type="submit" id="Login" onClick={this.handleClick}>Zaloguj się</button>
@@ -82,6 +85,9 @@ class Header extends Component {
                         </li>
                         <li className="nav-item active">
                             <a id="Register" className="nav-link" href="#" onClick={this.handleClick}>Rejestracja</a>
+                        </li>
+                        <li className="nav-item active">
+                            <a id="RemoveBook" className="nav-link" onClick={this.handleClick}>Usuń książkę</a>
                         </li>
                     </ul>
 

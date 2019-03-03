@@ -17,12 +17,14 @@ class Login extends Component {
 
     }
 
-    handleSubmit(){
+    handleSubmit(e){
         let data =  this.state.form;
         let result ={
             email : data.email,
             password : data.password,
         };
+
+        e.preventDefault();
 
         var headers = {
             'Accept': 'application/json',
@@ -32,6 +34,7 @@ class Login extends Component {
         axios.post('http://localhost:8081/login',result, {headers: headers}).then(resp => {
             document.cookie='token=Bearer '+resp.data;
             console.log('odp' + resp.data);
+            console.log(resp);
         });
     }
 

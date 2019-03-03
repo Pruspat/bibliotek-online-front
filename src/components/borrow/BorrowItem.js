@@ -21,7 +21,6 @@ class BorrowItem extends Component {
             var min = a.getMinutes();
             var sec = a.getSeconds();
             var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
-        console.log(year);
         if(year >1970){
             return time;
         }
@@ -32,11 +31,11 @@ class BorrowItem extends Component {
         <div className="pb-3">
             <div className="d-flex border border-success p-3 w-100 justify-content-between">
                 <div className="col col-lg-2 border-right border-success">
-                    {this.props.borrow.authorName}
+                    {this.props.borrow.authors[0].name}
                 </div>
 
                 <div className="col col-lg-2 border-right border-success">
-                    {this.props.borrow.authorSurname}
+                    {this.props.borrow.authors[0].surname}
                 </div>
 
                 <div className="col col-lg-2 border-right border-success">

@@ -7,6 +7,7 @@ import Borrow from "./components/borrow/Borrow";
 import AllBooks from "./components/allBooks/AllBooks";
 import Contact from "./components/contact/Contact";
 import AddAuthor from "./components/author/AddAuthor";
+import AdminAllBooks from "./adminComponents/AdminAllBooks";
 
 class ConstElement extends Component {
 
@@ -57,6 +58,12 @@ class ConstElement extends Component {
                 <div className="container">
                     <Register/>
                 </div>);
+        }else if (this.props.page === "RemoveBook"){
+            return(
+                <div className="container">
+                    <AdminAllBooks/>
+                </div>
+            )
         }
     }
 }
