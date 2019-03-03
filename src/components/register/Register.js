@@ -34,7 +34,7 @@ class Register extends Component {
         }
         console.log(result);
 
-        fetch('http://localhost:8080/customer/register', {
+        fetch('http://localhost:8081/customer/register', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',

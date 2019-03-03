@@ -29,9 +29,9 @@ class Login extends Component {
             'Content-Type': 'application/json',
         };
 
-        axios.post('http://localhost:8080/login',result, {headers: headers}).then(resp => {
-            document.cookie='token='+resp.data;
-            console.log(resp);
+        axios.post('http://localhost:8081/login',result, {headers: headers}).then(resp => {
+            document.cookie='token=Bearer '+resp.data;
+            console.log('odp' + resp.data);
         });
     }
 
