@@ -51,7 +51,9 @@ class ConstElement extends Component {
         } else if (this.props.page === "Main") {
             return (
                 <div className="container">
-                    Strona w przebudowie
+                    <h2>Witaj w naszej bibliotece !</h2>
+                    <p>Zapraszamy do skorzystania z naszej różnorodnej oferty.</p>
+                    <p>Zasady użytkowania naszego portalu znajdziesz pod odnośnikiem: <a href="#">Zasady użytkowania</a></p>
                 </div>);
         } else if (this.props.page === "Register") {
             return (
