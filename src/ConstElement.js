@@ -1,23 +1,27 @@
 import React, {Component} from 'react';
 import './App.css';
-import AddBook from "./components/addBooks/AddBook";
+import AddBook from "./addBooks/AddBook";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Borrow from "./components/borrow/Borrow";
 import AllBooks from "./components/allBooks/AllBooks";
 import Contact from "./components/contact/Contact";
-import AddAuthor from "./components/author/AddAuthor";
-import AdminAllBooks from "./adminComponents/AdminAllBooks";
+import AdminAllBooks from "./adminComponents/allBooks/AdminAllBooks";
+import axios from "axios";
 
 class ConstElement extends Component {
 
     constructor(props) {
         super(props);
-
+        this.state = {
+            role: null,
+        }
     }
 
 
+
     render() {
+
         if (this.props.page === "AllBooks") {
             return (
                 <div className="container">
@@ -53,15 +57,16 @@ class ConstElement extends Component {
                 <div className="container">
                     <h2>Witaj w naszej bibliotece !</h2>
                     <p>Zapraszamy do skorzystania z naszej różnorodnej oferty.</p>
-                    <p>Zasady użytkowania naszego portalu znajdziesz pod odnośnikiem: <a href="#">Zasady użytkowania</a></p>
+                    <p>Zasady użytkowania naszego portalu znajdziesz pod odnośnikiem: <a href="#">Zasady
+                        użytkowania</a></p>
                 </div>);
         } else if (this.props.page === "Register") {
             return (
                 <div className="container">
                     <Register/>
                 </div>);
-        }else if (this.props.page === "RemoveBook"){
-            return(
+        } else if (this.props.page === "RemoveBook") {
+            return (
                 <div className="container">
                     <AdminAllBooks/>
                 </div>

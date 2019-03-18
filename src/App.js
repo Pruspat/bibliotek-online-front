@@ -10,26 +10,29 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-           currentPage: "Main"
+            currentPage: "Login",
         };
 
         this.setPage = this.setPage.bind(this);
     }
 
 
-    setPage(page){
+    setPage(page) {
         this.setState({currentPage: page})
     }
 
 
     render() {
-        return(
+
+
+        return (
             <div className="container">
-            <Header setPage={this.setPage}/>
-            <ConstElement page={this.state.currentPage}/>
-            <Footer/>
+                <Header setPage={this.setPage}/>
+                <ConstElement page={this.state.currentPage}/>
+                <Footer/>
             </div>
         );
+
 
     }
 }

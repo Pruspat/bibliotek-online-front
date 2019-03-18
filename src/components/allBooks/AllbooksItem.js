@@ -22,7 +22,7 @@ class AllBooksItem extends Component {
 
     handleBorrow(e) {
 
-        console.log({bookId:this.state.bookId})
+        console.log(this.state.bookId)
         fetch('http://localhost:8081/borrow/add', {
             method: 'POST',
             headers: {
@@ -30,7 +30,7 @@ class AllBooksItem extends Component {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + this.state.token[1]
             },
-            body: JSON.stringify({bookId:this.state.bookId})
+            body: JSON.stringify([this.state.bookId])
         })
     }
 

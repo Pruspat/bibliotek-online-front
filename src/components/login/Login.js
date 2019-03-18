@@ -9,7 +9,8 @@ class Login extends Component {
 
         this.state = {
             form:{},
-            resp:null
+            resp:null,
+            token: document.cookie.split('=')
         }
 
         this.handleSubmit=this.handleSubmit.bind(this);
@@ -32,9 +33,23 @@ class Login extends Component {
         };
 
         axios.post('http://localhost:8081/login',result, {headers: headers}).then(resp => {
+            console.log("cyk login");
             document.cookie='token=Bearer '+resp.data;
-            console.log('odp' + resp.data);
-            console.log(resp);
+            console.log("cyk cookie login")
+        });
+
+        var headersTwo = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + this.state.token[1]
+        }
+
+        console.log("cyk role");
+
+        axios.get('http://localhost:8081/customer/getRole', {headers: headersTwo}).then(resp => {
+            console.log("cyk cookie role");
+            document.cookie='role'+resp.data;
+            console.log(this.state.role);
         });
     }
 
@@ -56,7 +71,7 @@ class Login extends Component {
                     <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
                         <div className="card card-signin my-5">
                             <div className="card-body">
-                                <h5 className="card-title text-center">Bibliotek Online</h5>
+                                <h5 className="card-title text-center">Biblioteka Online Logowanie</h5>
                                 <form className="form-signin" onSubmit={this.handleSubmit}>
                                     <div className="form-label-group mb-2">
 

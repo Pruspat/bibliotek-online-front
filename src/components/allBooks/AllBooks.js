@@ -24,8 +24,6 @@ class AllBooks extends Component {
             this.setState({books: resp.data});
             console.log(this.state.books);
         });
-
-
     }
 
 
