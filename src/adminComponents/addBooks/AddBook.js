@@ -34,7 +34,7 @@ class AddBook extends Component {
                 surname: data.surname
                 }
             ]
-        }
+        };
 
 
         fetch('http://localhost:8081/book/add', {
@@ -47,7 +47,7 @@ class AddBook extends Component {
             body:JSON.stringify(
                 result)
 
-        })
+        });
 
         console.log(result);
 

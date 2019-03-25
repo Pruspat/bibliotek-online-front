@@ -5,7 +5,7 @@ class FooterAdmin extends Component {
     render() {
         return (
             <div className="container bg-dark d-flex justify-content-center text-white rounded-bottom">
-                Patryk Prus Praca inżynierska Biblioteka Online Panel Pracownika
+                Patryk Prus Praca inżynierska Biblioteka Online Panel Zarządzania
             </div>
         );
     }

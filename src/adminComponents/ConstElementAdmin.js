@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import LoginAdmin from "./login/LoginAdmin";
 import AdminAllBooksRemove from "./allBooksRemove/AdminAllBooksRemove";
 import AddBook from "./addBooks/AddBook";
+import AdminSupport from "./support/AdminSupport";
 
 
 class ConstElementAdmin extends Component {
@@ -35,6 +36,12 @@ class ConstElementAdmin extends Component {
             return (
                 <div className="container">
                     <AddBook/>
+                </div>
+            )
+        }  else if (this.props.page === "Support") {
+            return (
+                <div className="container">
+                    <AdminSupport/>
                 </div>
             )
         } else {
