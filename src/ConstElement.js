@@ -1,21 +1,16 @@
 import React, {Component} from 'react';
 import './App.css';
-import AddBook from "./addBooks/AddBook";
+import AddBook from "./adminComponents/addBooks/AddBook";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Borrow from "./components/borrow/Borrow";
 import AllBooks from "./components/allBooks/AllBooks";
 import Contact from "./components/contact/Contact";
-import AdminAllBooks from "./adminComponents/allBooks/AdminAllBooks";
-import axios from "axios";
 
 class ConstElement extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            role: null,
-        }
     }
 
 
@@ -65,12 +60,6 @@ class ConstElement extends Component {
                 <div className="container">
                     <Register/>
                 </div>);
-        } else if (this.props.page === "RemoveBook") {
-            return (
-                <div className="container">
-                    <AdminAllBooks/>
-                </div>
-            )
         }
     }
 }

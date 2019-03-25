@@ -103,7 +103,7 @@ class AddBook extends Component {
                                    required onChange={this.handleChange}/>
                         </div>
 
-                        <button type="submit" className="btn btn-primary ">Dodaj</button>
+                        <button type="submit" className="btn btn-dark ">Dodaj</button>
                     </form>
                 </div>
             </div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 
 
-class Login extends Component {
+class LoginAdmin extends Component {
 
     constructor(props) {
         super(props);
@@ -10,11 +10,12 @@ class Login extends Component {
         this.state = {
             form:{},
             resp:null,
-            token: document.cookie.split('=')
+            token: document.cookie.split('='),
         }
 
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handleChange=this.handleChange.bind(this);
+        this.showInfo=this.showInfo.bind(this);
 
     }
 
@@ -33,11 +34,27 @@ class Login extends Component {
         };
 
         axios.post('http://localhost:8081/login',result, {headers: headers}).then(resp => {
-            console.log("cyk login");
+
             document.cookie='token=Bearer '+resp.data;
 
-            window.location.reload(true);
+            var headersTwo = {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' +resp.data
+            };
+
+            //jezeli nie jest adminn to kasuj cookie
+
+            axios.get('http://localhost:8081/customer/getRole', {headers: headersTwo}).then(respRole => {
+
+                if(respRole.data !== "admin" || "worker" || ""){
+                    document.cookie = "token =";
+                    this.showInfo();
+                }
+            });
+
         });
+
 
     }
 
@@ -50,6 +67,9 @@ class Login extends Component {
     }
 
 
+    showInfo(){
+        alert("Nie posiadasz wystarczających uprawnień !!!")
+    }
 
     render() {
         return (
@@ -59,7 +79,7 @@ class Login extends Component {
                     <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
                         <div className="card card-signin my-5">
                             <div className="card-body">
-                                <h5 className="card-title text-center">Biblioteka Online Logowanie</h5>
+                                <h5 className="card-title text-center">Biblioteka Online Logowanie Pracownika</h5>
                                 <form className="form-signin" onSubmit={this.handleSubmit}>
                                     <div className="form-label-group mb-2">
 
@@ -74,7 +94,7 @@ class Login extends Component {
 
                                     </div>
 
-                                    <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
+                                    <button className="btn btn-lg btn-dark btn-block text-uppercase" type="submit">
                                         Zaloguj się
                                     </button>
                                 </form>
@@ -88,4 +108,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default LoginAdmin;

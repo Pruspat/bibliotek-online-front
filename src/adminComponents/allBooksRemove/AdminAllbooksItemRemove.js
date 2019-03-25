@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import axios from "axios";
 
-class AdminAllbooksItem extends Component {
+class AdminAllbooksItemRemove extends Component {
 
     constructor(props) {
         super(props);
@@ -18,6 +17,8 @@ class AdminAllbooksItem extends Component {
     componentDidMount() {
         this.setState({bookId: this.props.book.bookEntity.id});
         this.setState({isBorrowed: this.props.book.bookEntity.borrowed});
+
+
     }
 
     handleBorrow() {
@@ -58,4 +59,4 @@ class AdminAllbooksItem extends Component {
     }
 }
 
-export default AdminAllbooksItem;
+export default AdminAllbooksItemRemove;
