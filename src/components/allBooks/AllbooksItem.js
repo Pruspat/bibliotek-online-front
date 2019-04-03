@@ -9,15 +9,30 @@ class AllBooksItem extends Component {
         this.state = {
             bookId: null,
             isBorrowed: null,
-            token:document.cookie.split('='),
+            token: document.cookie.split('='),
         }
         this.handleBorrow = this.handleBorrow.bind(this);
     }
 
 
     componentDidMount() {
-        this.setState({bookId:this.props.book.bookEntity.id});
-        this.setState({isBorrowed:this.props.book.bookEntity.borrowed});
+        this.setState({bookId: this.props.book.bookEntity.id});
+        this.setState({isBorrowed: this.props.book.bookEntity.borrowed});
+
+        var headers = {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + this.state.token[1]
+        }
+
+        axios.get('http://localhost:8081/borrow/avg-book/' + this.props.book.bookEntity.id, {headers: headers}).then(resp => {
+            this.setState({bookId: resp.data});
+        });
+
+        if (typeof this.state.bookId !== "number") {
+            this.setState({bookId: 0})
+        }
+
     }
 
     handleBorrow(e) {
@@ -35,50 +50,93 @@ class AllBooksItem extends Component {
     }
 
 
-
-
     render() {
-        if(this.state.isBorrowed !== true) {
-            return (
+        if (this.state.isBorrowed !== true) {
+            if (typeof (this.state.bookId) !== "number") {
+                return (
 
 
-                <form onSubmit={this.handleBorrow}
-                      className="mb-3 border border-dark rounded mt-3 col-5 d-flex justify-content-center  align-items-center flex-column">
-
-                    <div className="d-flex mt-3">
-                        <img alt="zdj ksiązki" src="book.jpg" style={{width: 80},{height:80}} className="pr-5"/>
-                        <div className="">
-                            <div name="authorName">
-                                <span>Autor: </span>{this.props.book.authorEntityList[0].name}{this.props.book.authorEntityList[0].surname}{this.props.book.authorSurname}
-                            </div>
-                            <div name="title"><span>Tytuł: </span>{this.props.book.bookEntity.title}</div>
-                            <div name="type"><span>Gatunek: </span>{this.props.book.bookEntity.type}</div>
-
-                        </div>
-                    </div>
-                    <button className="btn btn-primary w-75 mb-3" type="submit">Wypożycz</button>
-                </form>
-
-            );
-        }else{
-            return(
-                <form onSubmit={this.handleBorrow} style={{background:"#a0a0a0"}}
+                    <form onSubmit={this.handleBorrow}
                           className="mb-3 border border-dark rounded mt-3 col-5 d-flex justify-content-center  align-items-center flex-column">
 
-                <div className="d-flex mt-3">
-                    <img alt="zdj ksiązki" src="book.jpg" style={{width: 80},{height:80}} className="pr-5"/>
-                    <div className="">
-                        <div name="authorName">
-                            <span>Autor: </span>{this.props.book.authorEntityList[0].name}{this.props.book.authorEntityList[0].surname}{this.props.book.authorSurname}
+                        <div className="d-flex mt-3">
+                            <img alt="zdj ksiązki" src="book.jpg" style={{width: 80},{height:80}} className="pr-5"/>
+                            <div className="">
+                                <div name="authorName">
+                                    <span>Autor: </span>{this.props.book.authorEntityList[0].name}{this.props.book.authorEntityList[0].surname}{this.props.book.authorSurname}
+                                </div>
+                                <div name="title"><span>Tytuł: </span>{this.props.book.bookEntity.title}</div>
+                                <div name="type"><span>Gatunek: </span>{this.props.book.bookEntity.type}</div>
+                            </div>
                         </div>
-                        <div name="title"><span>Tytuł: </span>{this.props.book.bookEntity.title}</div>
-                        <div name="type"><span>Gatunek: </span>{this.props.book.bookEntity.type}</div>
+                        <button className="btn btn-primary w-75 mb-3" type="submit">Wypożycz</button>
+                    </form>
 
-                    </div>
-                </div>
-                    <div>Książka aktualnie jest wypożyczona</div>
-            </form>
-            );
+                );
+            } else {
+                return (
+
+
+                    <form onSubmit={this.handleBorrow}
+                          className="mb-3 border border-dark rounded mt-3 col-5 d-flex justify-content-center  align-items-center flex-column">
+
+                        <div className="d-flex mt-3">
+                            <img alt="zdj ksiązki" src="book.jpg" style={{width: 80},{height:80}} className="pr-5"/>
+                            <div className="">
+                                <div name="authorName">
+                                    <span>Autor: </span>{this.props.book.authorEntityList[0].name}{this.props.book.authorEntityList[0].surname}{this.props.book.authorSurname}
+                                </div>
+                                <div name="title"><span>Tytuł: </span>{this.props.book.bookEntity.title}</div>
+                                <div name="type"><span>Gatunek: </span>{this.props.book.bookEntity.type}</div>
+                                <div><span>Średnia ocena: </span>{this.state.bookId}</div>
+                            </div>
+                        </div>
+                        <button className="btn btn-primary w-75 mb-3" type="submit">Wypożycz</button>
+                    </form>
+
+                );
+            }
+        } else {
+
+            if (typeof (this.state.bookId) !== "number") {
+                return (
+                    <form onSubmit={this.handleBorrow} style={{background: "#a0a0a0"}}
+                          className="mb-3 border border-dark rounded mt-3 col-5 d-flex justify-content-center  align-items-center flex-column">
+
+                        <div className="d-flex mt-3">
+                            <img alt="zdj ksiązki" src="book.jpg" style={{width: 80},{height:80}} className="pr-5"/>
+                            <div className="">
+                                <div name="authorName">
+                                    <span>Autor: </span>{this.props.book.authorEntityList[0].name}{this.props.book.authorEntityList[0].surname}{this.props.book.authorSurname}
+                                </div>
+                                <div name="title"><span>Tytuł: </span>{this.props.book.bookEntity.title}</div>
+                                <div name="type"><span>Gatunek: </span>{this.props.book.bookEntity.type}</div>
+                            </div>
+                        </div>
+                        <div>Książka aktualnie jest wypożyczona</div>
+                    </form>
+                );
+            } else {
+                return (
+                    <form onSubmit={this.handleBorrow} style={{background: "#a0a0a0"}}
+                          className="mb-3 border border-dark rounded mt-3 col-5 d-flex justify-content-center  align-items-center flex-column">
+
+                        <div className="d-flex mt-3">
+                            <img alt="zdj ksiązki" src="book.jpg" style={{width: 80},{height:80}} className="pr-5"/>
+                            <div className="">
+                                <div name="authorName">
+                                    <span>Autor: </span>{this.props.book.authorEntityList[0].name}{this.props.book.authorEntityList[0].surname}{this.props.book.authorSurname}
+                                </div>
+                                <div name="title"><span>Tytuł: </span>{this.props.book.bookEntity.title}</div>
+                                <div name="type"><span>Gatunek: </span>{this.props.book.bookEntity.type}</div>
+                                <div><span>Średnia ocena: </span>{this.state.bookId}</div>
+                            </div>
+                        </div>
+                        <div>Książka aktualnie jest wypożyczona</div>
+                    </form>
+                );
+            }
+
         }
     }
 }

@@ -6,6 +6,7 @@ import Register from "./components/register/Register";
 import Borrow from "./components/borrow/Borrow";
 import AllBooks from "./components/allBooks/AllBooks";
 import Contact from "./components/contact/Contact";
+import Response from "./components/response/Response";
 
 class ConstElement extends Component {
 
@@ -59,6 +60,11 @@ class ConstElement extends Component {
             return (
                 <div className="container">
                     <Register/>
+                </div>);
+        }else if (this.props.page === "Replys") {
+            return (
+                <div className="container">
+                    <Response/>
                 </div>);
         }
     }

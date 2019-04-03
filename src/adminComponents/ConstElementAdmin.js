@@ -3,6 +3,7 @@ import LoginAdmin from "./login/LoginAdmin";
 import AdminAllBooksRemove from "./allBooksRemove/AdminAllBooksRemove";
 import AddBook from "./addBooks/AddBook";
 import AdminSupport from "./support/AdminSupport";
+import ReturnBorrow from "./ReturnBorrow/ReturnBorrow";
 
 
 class ConstElementAdmin extends Component {
@@ -42,6 +43,12 @@ class ConstElementAdmin extends Component {
             return (
                 <div className="container">
                     <AdminSupport/>
+                </div>
+            )
+        } else if (this.props.page === "Return") {
+            return (
+                <div className="container">
+                    <ReturnBorrow/>
                 </div>
             )
         } else {

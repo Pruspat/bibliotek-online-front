@@ -69,6 +69,9 @@ class Header extends Component {
                         <li className="nav-item active">
                             <a id="Contact" className="nav-link" href="#" onClick={this.handleClick}>Kontakt</a>
                         </li>
+                        <li className="nav-item active">
+                            <a id="Replys" className="nav-link" href="#" onClick={this.handleClick}>Rozpoczęte wątki</a>
+                        </li>
                     </ul>
 
                     <button className="btn btn-outline-warning my-2 my-sm-0" type="submit" onClick={this.logout}>Wyloguj się</button>

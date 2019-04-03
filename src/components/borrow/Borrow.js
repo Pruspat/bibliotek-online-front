@@ -34,14 +34,6 @@ class Borrow extends Component {
                 <div className="row d-block">
                     <div className="d-flex border border-success p-3 w-100 justify-content-between mb-1">
                         <div className="col col-lg-2 border-right border-success">
-                            Imie
-                        </div>
-
-                        <div className="col col-lg-2 border-right border-success">
-                            Nazwisko
-                        </div>
-
-                        <div className="col col-lg-2 border-right border-success">
                             Tytuł
                         </div>
 

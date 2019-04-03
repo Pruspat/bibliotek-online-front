@@ -61,6 +61,9 @@ class HeaderAdmin extends Component {
                         <li className="nav-item active">
                             <a id="Support" className="nav-link text-danger" onClick={this.handleClick}>Wiadomości od kientów</a>
                         </li>
+                        <li className="nav-item active">
+                            <a id="Return" className="nav-link text-danger" onClick={this.handleClick}>Zwróć wypożyczenie</a>
+                        </li>
                     </ul>
 
                     <button className="btn btn-outline-warning my-2 my-sm-0 text-danger" type="submit" onClick={this.logout}>Wyloguj się</button>

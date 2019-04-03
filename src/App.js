@@ -37,7 +37,7 @@ class App extends Component {
 
            console.log(this.state.role)
           if(this.state.role === "admin"){
-              this.setState({currentPage:"AddBook"})
+              this.setState({currentPage:"ReturnBorrow"})
           }else{
               this.setState({currentPage:"Main"})
            }

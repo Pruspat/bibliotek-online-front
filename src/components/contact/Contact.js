@@ -17,7 +17,6 @@ class Contact extends Component {
 
 
     handleSubmit(e) {
-        e.preventDefault();
         let data = this.state.form;
         let result = {
             content: data.content
@@ -86,7 +85,7 @@ class Contact extends Component {
 
                             </div>
 
-                            <button type="submit" className="btn btn-dark ">Wyślij</button>
+                            <button type="submit" className="btn btn-primary ">Wyślij</button>
                         </form>
                     </div>
                 </div>

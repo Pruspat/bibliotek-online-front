@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import axios from 'axios'
-import AdminAllbooksItemRemove from "../allBooksRemove/AdminAllbooksItemRemove";
 import AdminSupportItem from "./AdminSupportItem";
 
 
@@ -39,10 +38,8 @@ class AdminSupport extends Component {
 
         this.setState({
             reply: false,
-            replyId: null
         })
         console.log(this.state.reply);
-        console.log(this.state.replyId);
         console.log("click adminSupport");
 
     }
@@ -69,12 +66,12 @@ class AdminSupport extends Component {
         let data = this.state.form;
         let result = {
             id: this.state.replyId,
-            replay: data.content
+            replay: data.replay
         };
 
 
         fetch('http://localhost:8081/support/replay', {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -122,7 +119,7 @@ class AdminSupport extends Component {
 
                             </div>
 
-                            <button type="submit" className="btn btn-dark" onClick={this.btr}>Wyślij</button>
+                            <button type="submit" className="btn btn-dark" >Wyślij</button>
                         </form>
                     </div>
                 </div>
