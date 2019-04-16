@@ -8,6 +8,7 @@ import FooterAdmin from "./adminComponents/footer/FooterAdmin";
 import HeaderAdmin from "./adminComponents/header/HeaderAdmin";
 import axios from "axios";
 
+
 class App extends Component {
 
     constructor(props) {
@@ -37,7 +38,13 @@ class App extends Component {
 
            console.log(this.state.role)
           if(this.state.role === "admin"){
+              this.setState({currentPage:"Return"})
+          }else if(this.state.role === "worker"){
               this.setState({currentPage:"ReturnBorrow"})
+
+          } else if(this.state.role === "kierownik"){
+              this.setState({currentPage:"AllUsersSalary"})
+
           }else{
               this.setState({currentPage:"Main"})
            }
@@ -54,7 +61,7 @@ class App extends Component {
         if(window.location.pathname.includes("admin")){
             return (
                 <div className="container">
-                    admin
+                    <p>{this.state.role}</p>
                     <HeaderAdmin setPage={this.setPage}/>
                     <ConstElementAdmin page={this.state.currentPage}/>
                     <FooterAdmin/>
@@ -63,7 +70,6 @@ class App extends Component {
         }else{
             return (
                 <div className="container">
-                    user
                     <Header setPage={this.setPage}/>
                     <ConstElement page={this.state.currentPage}/>
                     <Footer/>

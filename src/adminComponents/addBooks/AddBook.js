@@ -77,8 +77,7 @@ class AddBook extends Component {
                         <div className="d-flex">
                             <div className="form-group">
                                 <label htmlFor="title">Podaj Tytuł</label>
-                                <input name="title" type="text" className="form-control" id="title" placeholder="Zemsta"
-                                       required onChange={this.handleChange}/>
+                                <input name="title" type="text" className="form-control" id="title" placeholder="Zemsta" required onChange={this.handleChange}/>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="type">Podaj gatunek</label>

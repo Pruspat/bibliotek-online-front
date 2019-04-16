@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import $ from 'jquery';
+
 import axios from "axios";
 
 // import './Header.css';
@@ -14,11 +16,17 @@ class BorrowItem extends Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.open = this.open.bind(this);
         this.timeConverter = this.timeConverter.bind(this);
 
         console.log(this.props.borrow);
     }
 
+    open(){
+        console.log("open")
+        $(".js-review-open").css("display","block");
+        console.log($(".js-review-open")[0]);
+    }
     timeConverter(time) {
         var a = new Date(time);
 
@@ -121,10 +129,10 @@ class BorrowItem extends Component {
                                     {this.props.borrow.status}
                                 </div>
                             </div>
-                            <button className="js-review-open bg-success col-lg-12">Ocen lub zrecenzuj</button>
+                            <button className=" bg-primary col-lg-12" onClick={this.open}>Ocen lub zrecenzuj</button>
                         </div>
 
-                        <form className=" text-center" onSubmit={this.handleSubmit}>
+                        <form className="js-review-open text-center" style={{"display":"none"}} onSubmit={this.handleSubmit}>
 
                             <div className="d-flex justify-content-center">
                                 <div className="form-group col-lg-4">
@@ -155,7 +163,7 @@ class BorrowItem extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" className="btn btn-success col-lg-2">Dodaj opinie</button>
+                            <button type="submit" className="btn btn-primary col-lg-2 mb-5">Dodaj opinie</button>
                         </form>
 
                     </div>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios'
 import AdminSupportItem from "./AdminSupportItem";
+import AdminSupportItemYours from "./AdminSupportItemYours";
 
 
 class AdminSupport extends Component {
@@ -34,7 +35,7 @@ class AdminSupport extends Component {
         });
     }
 
-    btr(){
+    btr() {
 
         this.setState({
             reply: false,
@@ -45,6 +46,7 @@ class AdminSupport extends Component {
     }
 
     replier(id) {
+        console.log("replyier now")
         this.setState({
             reply: true,
             replyId: id
@@ -83,6 +85,7 @@ class AdminSupport extends Component {
         });
         console.log(result);
         console.log(this.state.replyId);
+        window.location.reload(true);
 
     }
 
@@ -93,9 +96,18 @@ class AdminSupport extends Component {
                 return (
 
                     <div className="row d-flex justify-content-around">
-                        {this.state.supports.map((item) =>
-                            <AdminSupportItem support={item} replier={this.replier}/>
-                        )}
+                        <div className="col-6 text-center p-1">
+                            <p class="col-12">Twoje zgłoszenia do obsługi</p>
+                            {this.state.supports.map((item) =>
+                                <AdminSupportItemYours support={item} replier={this.replier}/>
+                            )}
+                        </div>
+                        <div className="col-6 p-1">
+                            <p className="col-12 text-center">Nie przypisane zgłoszenia</p>
+                            {this.state.supports.map((item) =>
+                                <AdminSupportItem support={item} />
+                            )}
+                        </div>
                     </div>
                 );
             } else {
@@ -119,7 +131,7 @@ class AdminSupport extends Component {
 
                             </div>
 
-                            <button type="submit" className="btn btn-dark" >Wyślij</button>
+                            <button type="submit" className="btn btn-dark">Wyślij</button>
                         </form>
                     </div>
                 </div>

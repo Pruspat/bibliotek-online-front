@@ -7,6 +7,7 @@ import Borrow from "./components/borrow/Borrow";
 import AllBooks from "./components/allBooks/AllBooks";
 import Contact from "./components/contact/Contact";
 import Response from "./components/response/Response";
+import UserBorrows from "./components/UserBorrows/UserBorrows";
 
 class ConstElement extends Component {
 
@@ -60,6 +61,11 @@ class ConstElement extends Component {
             return (
                 <div className="container">
                     <Register/>
+                </div>);
+        }else if (this.props.page === "UserBorrows") {
+            return (
+                <div className="container">
+                    <UserBorrows/>
                 </div>);
         }else if (this.props.page === "Replys") {
             return (

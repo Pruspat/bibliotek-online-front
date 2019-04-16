@@ -4,6 +4,9 @@ import AdminAllBooksRemove from "./allBooksRemove/AdminAllBooksRemove";
 import AddBook from "./addBooks/AddBook";
 import AdminSupport from "./support/AdminSupport";
 import ReturnBorrow from "./ReturnBorrow/ReturnBorrow";
+import AllUsers from "./allUsers/AllUsers";
+import AllUsersSalary from "./Salary/AllUsersSalary";
+import SetWorkerTask from "./setWorkerTAsks/SetWorkerTask";
 
 
 class ConstElementAdmin extends Component {
@@ -39,7 +42,7 @@ class ConstElementAdmin extends Component {
                     <AddBook/>
                 </div>
             )
-        }  else if (this.props.page === "Support") {
+        } else if (this.props.page === "Support") {
             return (
                 <div className="container">
                     <AdminSupport/>
@@ -49,6 +52,25 @@ class ConstElementAdmin extends Component {
             return (
                 <div className="container">
                     <ReturnBorrow/>
+                </div>
+            )
+
+        } else if (this.props.page === "Users") {
+            return (
+                <div className="container">
+                    <AllUsers/>
+                </div>
+            )
+        }  else if (this.props.page === "AllUsersSalary") {
+            return (
+                <div className="container">
+                    <AllUsersSalary/>
+                </div>
+            )
+        }   else if (this.props.page === "SetTask") {
+            return (
+                <div className="container">
+                    <SetWorkerTask/>
                 </div>
             )
         } else {

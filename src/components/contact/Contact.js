@@ -13,6 +13,26 @@ class Contact extends Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.setPublic = this.setPublic.bind(this);
+    }
+
+    setPublic(){
+
+        fetch('http://localhost:8081/customer/setPublic', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + this.state.token[1]
+            },
+            body: JSON.stringify(
+                {
+                    "isPublic" :  true
+                }
+            )
+        });
+        console.log("click");
+
     }
 
 
@@ -54,6 +74,9 @@ class Contact extends Component {
             <div className="row d-block">
 
                 <div className="d-flex justify-content-center">
+                    <div className="">
+                        <input type="checkbox"  onClick={this.setPublic}/>
+                    </div>
                     <div className="col-6">
                         <h2>Info</h2>
                         <p>Aplikacja została stworzona na cel pracy inżynierskiej</p>
