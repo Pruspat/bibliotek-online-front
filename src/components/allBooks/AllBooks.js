@@ -34,7 +34,7 @@ class AllBooks extends Component {
         let data = this.state.form;
         let id = ev.target.name;
         data[id] = ev.target.value;
-        console.log(this.state.form.cat)
+        console.log("tutaj jaka kategoria: " + this.state.form.cat)
 
 
         var headers = {
@@ -73,19 +73,19 @@ class AllBooks extends Component {
                                                                                  type="radio" name="cat"
                                                                                  className="dropdown-item" href="#"
                                                                                  style={{"width": "30px"}}
-                                                                                 value="komedia"/>Komeida
+                                                                                 value="Komedia"/>Komeida
                             </div>
                             <div className="d-flex justify-content-start"><input onChange={this.handleChange}
                                                                                  type="radio" name="cat"
                                                                                  className="dropdown-item" href="#"
                                                                                  style={{"width": "30px"}}
-                                                                                 value="powiesc"/>Powieść
+                                                                                 value="Powiesc"/>Powieść
                             </div>
                             <div className="d-flex justify-content-start"><input onChange={this.handleChange}
                                                                                  type="radio" name="cat"
                                                                                  className="dropdown-item" href="#"
                                                                                  style={{"width": "30px"}}
-                                                                                 value="epos"/>Epos
+                                                                                 value="Epos"/>Epos
                             </div>
                             <div className="d-flex justify-content-start"><input onChange={this.handleChange}
                                                                                  type="radio" name="cat"

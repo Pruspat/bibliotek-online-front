@@ -27,10 +27,12 @@ class AllBooksItem extends Component {
             'Authorization': 'Bearer ' + this.state.token[1]
         }
 
+        console.log("ksiazka: " + this.props.book)
         axios.get('http://localhost:8081/borrow/avg-book/' + this.props.book.bookEntity.id, {headers: headers}).then(resp => {
             this.setState({bookId: resp.data});
         });
 
+        console.log("ocena ksaizki : " +  this.state.bookId)
         if (typeof this.state.bookId !== "number") {
             this.setState({bookId: 0})
         }
@@ -48,8 +50,9 @@ class AllBooksItem extends Component {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + this.state.token[1]
             },
-            body: JSON.stringify([this.state.bookId])
+            body: JSON.stringify([this.props.book.bookEntity.id])
         })
+        window.location.reload(true);
     }
 
     showReviews(){
@@ -79,7 +82,7 @@ class AllBooksItem extends Component {
                           className="mb-3 border border-dark rounded mt-3 col-5 d-flex justify-content-center  align-items-center flex-column">
 
                         <div className="d-flex mt-3">
-                            <img alt="zdj ksiązki" src="book.jpg" style={{width: 80},{height:80}} className="pr-5"/>
+                            <img alt="zdj ksiązki" src={this.props.book.bookEntity.img} style={{width: 80},{height:80}} className="pr-5"/>
                             <div className="">
                                 <div name="authorName">
                                     <span>Autor: </span>{this.props.book.authorEntityList[0].name}{this.props.book.authorEntityList[0].surname}{this.props.book.authorSurname}
@@ -99,7 +102,7 @@ class AllBooksItem extends Component {
                           className="mb-3 border border-dark rounded mt-3 d-flex justify-content-center  align-items-center flex-column w-100">
 
                         <div className="d-flex mt-3">
-                            <img alt="zdj ksiązki" src="book.jpg" style={{width: 80},{height:80}} className="pr-5"/>
+                            <img alt="zdj ksiązki" src={this.props.book.bookEntity.img} style={{width: 80},{height:80}} className="pr-5"/>
                             <div className="">
                                 <div name="authorName">
                                     <span>Autor: </span>{this.props.book.authorEntityList[0].name}{this.props.book.authorEntityList[0].surname}{this.props.book.authorSurname}
@@ -127,7 +130,7 @@ class AllBooksItem extends Component {
                               className="mb-3 border border-dark rounded mt-3 col-5 d-flex justify-content-center  align-items-center flex-column">
 
                             <div className="d-flex mt-3">
-                                <img alt="zdj ksiązki" src="book.jpg" style={{width: 80},{height:80}} className="pr-5"/>
+                                <img alt="zdj ksiązki" src={this.props.book.bookEntity.img} style={{width: 80},{height:80}} className="pr-5"/>
                                 <div className="">
                                     <div name="authorName">
                                         <span>Autor: </span>{this.props.book.authorEntityList[0].name}{this.props.book.authorEntityList[0].surname}{this.props.book.authorSurname}
@@ -145,7 +148,7 @@ class AllBooksItem extends Component {
                           className="mb-3 border border-dark rounded mt-3 col-5 d-flex justify-content-center  align-items-center flex-column">
 
                         <div className="d-flex mt-3">
-                            <img alt="zdj ksiązki" src="book.jpg" style={{width: 80},{height:80}} className="pr-5"/>
+                            <img alt="zdj ksiązki" src={this.props.book.bookEntity.img} style={{width: 80},{height:80}} className="pr-5"/>
                             <div className="">
                                 <div name="authorName">
                                     <span>Autor: </span>{this.props.book.authorEntityList[0].name}{this.props.book.authorEntityList[0].surname}{this.props.book.authorSurname}

@@ -21,7 +21,7 @@ class ReturnBorrow extends Component {
         e.preventDefault();
         let data = this.state.form;
 
-
+        console.log("podane id uzytkownika" + data.id);
 
         fetch('http://localhost:8081/borrow/return/'+data.id, {
             method: 'GET',
@@ -52,7 +52,7 @@ class ReturnBorrow extends Component {
                     <form className="d-flex flex-column justify-content-center" onSubmit={this.handleSubmit}>
                         <div className="d-flex">
                             <div className="form-group">
-                                <label htmlFor="id">Podaj identyfikator użytkownika</label>
+                                <label htmlFor="id">Podaj identyfikator wypożyczenia</label>
                                 <input name="id" type="text" className="form-control" id="id" placeholder="63"
                                        required onChange={this.handleChange}/>
                             </div>

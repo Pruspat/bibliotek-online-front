@@ -33,6 +33,9 @@ class Borrow extends Component {
 
                 <div className="row d-block">
                     <div className="d-flex border border-success p-3 w-100 justify-content-between mb-1">
+                        <div className="col col-lg-1 border-right border-success">
+                            Id wypożyczenia
+                        </div>
                         <div className="col col-lg-2 border-right border-success">
                             Tytuł
                         </div>

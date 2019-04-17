@@ -83,17 +83,10 @@ class HeaderAdmin extends Component {
                                     od kientów</a>
                             </li>
                             <li className="nav-item active">
-                                <a id="Return" className="nav-link text-danger" onClick={this.handleClick}>Zwróć
-                                    wypożyczenie</a>
-                            </li>
-                            <li className="nav-item active">
                                 <a id="Users" className="nav-link text-danger" onClick={this.handleClick}>Uprawnienia użytkowników</a>
                             </li>
                             <li className="nav-item active">
                                 <a id="AllUsersSalary" className="nav-link text-danger" onClick={this.handleClick}>Wynagordzenia</a>
-                            </li>
-                            <li className="nav-item active">
-                                <a id="SetTask" className="nav-link text-danger" onClick={this.handleClick}>Wątki pracowników</a>
                             </li>
                         </ul>
 
@@ -117,6 +110,12 @@ class HeaderAdmin extends Component {
                                 <a id="RemoveBook" className="nav-link text-danger" onClick={this.handleClick}>Usuń
                                     książkę</a>
                             </li>
+
+                            <li className="nav-item active">
+                                <a id="Return" className="nav-link text-danger" onClick={this.handleClick}>Zwróć
+                                    wypożyczenie</a>
+                            </li>
+
                             <li className="nav-item active">
                                 <a id="Support" className="nav-link text-danger" onClick={this.handleClick}>Wiadomości
                                     od kientów</a>

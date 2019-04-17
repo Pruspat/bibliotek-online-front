@@ -26,7 +26,8 @@ class AddBook extends Component {
                 type: data.type,
                 isbnNr: data.isbn,
                 workerId: "12",
-                isBorrowed: false
+                isBorrowed: false,
+                img: data.img
             },
             authorEntityList: [
                 {
@@ -99,6 +100,12 @@ class AddBook extends Component {
                         <div className="form-group">
                             <label htmlFor="surname">Podaj nazwisko autora</label>
                             <input name="surname" type="text" className="form-control" id="surname" placeholder="Fredro"
+                                   required onChange={this.handleChange}/>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="img">Podaj link do zdjęcia okładki</label>
+                            <input name="img" type="text" className="form-control" id="img" placeholder=""
                                    required onChange={this.handleChange}/>
                         </div>
 

@@ -75,6 +75,9 @@ class Header extends Component {
                         <li className="nav-item active">
                             <a id="UserBorrows" className="nav-link" href="#" onClick={this.handleClick}>Wypożyczenia użytkowników</a>
                         </li>
+                        <li className="nav-item active">
+                            <a id="Settings" className="nav-link" href="#" onClick={this.handleClick}>Ustawienia konta</a>
+                        </li>
                     </ul>
 
                     <button className="btn btn-outline-warning my-2 my-sm-0" type="submit" onClick={this.logout}>Wyloguj się</button>

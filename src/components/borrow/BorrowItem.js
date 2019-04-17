@@ -177,6 +177,9 @@ class BorrowItem extends Component {
                             <div className="d-flex border border-success p-3 w-100 justify-content-between">
 
 
+                                <div className="col col-lg-1 border-right border-success w-100">
+
+                                </div>
                                 <div className="col col-lg-2 border-right border-success">
                                     {this.props.borrow.title}
                                 </div>
@@ -205,6 +208,10 @@ class BorrowItem extends Component {
                 <div className="pb-3">
                     <div className="d-flex border border-success p-3 w-100 justify-content-between">
 
+
+                        <div className="col col-lg-1 border-right border-success w-100">
+                            {this.props.borrow.id}
+                        </div>
 
                         <div className="col col-lg-2 border-right border-success">
                             {this.props.borrow.title}

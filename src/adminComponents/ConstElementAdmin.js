@@ -19,7 +19,7 @@ class ConstElementAdmin extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.page);
+        console.log("const element admin start page: " + this.props.page);
     }
 
 
@@ -76,7 +76,7 @@ class ConstElementAdmin extends Component {
         } else {
             return (
                 <div className="container">
-                    <AdminAllBooksRemove/>
+                    <AddBook/>
                 </div>
             )
         }

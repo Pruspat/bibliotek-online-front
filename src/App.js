@@ -14,9 +14,10 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentPage: "Login",
+            currentPage: null,
             token: document.cookie.split(";")[0].split('='),
-            role: null
+            role: null,
+            pageForRole: null
         };
 
         this.setPage = this.setPage.bind(this);
@@ -36,18 +37,7 @@ class App extends Component {
                console.log("app response role: " + resp.data);
            });
 
-           console.log(this.state.role)
-          if(this.state.role === "admin"){
-              this.setState({currentPage:"Return"})
-          }else if(this.state.role === "worker"){
-              this.setState({currentPage:"ReturnBorrow"})
 
-          } else if(this.state.role === "kierownik"){
-              this.setState({currentPage:"AllUsersSalary"})
-
-          }else{
-              this.setState({currentPage:"Main"})
-           }
        }
     }
 
@@ -63,7 +53,7 @@ class App extends Component {
                 <div className="container">
                     <p>{this.state.role}</p>
                     <HeaderAdmin setPage={this.setPage}/>
-                    <ConstElementAdmin page={this.state.currentPage}/>
+                    <ConstElementAdmin page={this.state.currentPage} pageForRole={this.state.pageForRole}/>
                     <FooterAdmin/>
                 </div>
             );

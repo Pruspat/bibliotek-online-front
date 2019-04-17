@@ -8,6 +8,7 @@ import AllBooks from "./components/allBooks/AllBooks";
 import Contact from "./components/contact/Contact";
 import Response from "./components/response/Response";
 import UserBorrows from "./components/UserBorrows/UserBorrows";
+import Settings from "./components/settings/Settings";
 
 class ConstElement extends Component {
 
@@ -71,6 +72,19 @@ class ConstElement extends Component {
             return (
                 <div className="container">
                     <Response/>
+                </div>);
+        }else if (this.props.page === "Settings") {
+            return (
+                <div className="container">
+                    <Settings/>
+                </div>);
+        }else{
+            return (
+                <div className="container">
+                    <h2>Witaj w naszej bibliotece !</h2>
+                    <p>Zapraszamy do skorzystania z naszej różnorodnej oferty.</p>
+                    <p>Zasady użytkowania naszego portalu znajdziesz pod odnośnikiem: <a href="#">Zasady
+                        użytkowania</a></p>
                 </div>);
         }
     }
