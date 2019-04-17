@@ -19,7 +19,7 @@ class ConstElementAdmin extends Component {
     }
 
     componentDidMount() {
-        console.log("const element admin start page: " + this.props.page);
+        console.log("const element admin start page: " + this.props.pageForRole);
     }
 
 
@@ -73,10 +73,22 @@ class ConstElementAdmin extends Component {
                     <SetWorkerTask/>
                 </div>
             )
-        } else {
+        } else if(this.props.pageForRole === "worker") {
             return (
                 <div className="container">
-                    <AddBook/>
+                    <AdminSupport/>
+                </div>
+            )
+        }else if(this.props.pageForRole === "admin") {
+            return (
+                <div className="container">
+                    <AllUsers/>
+                </div>
+            )
+        }else if(this.props.pageForRole === "kierownik") {
+            return (
+                <div className="container">
+                    <AllUsersSalary/>
                 </div>
             )
         }

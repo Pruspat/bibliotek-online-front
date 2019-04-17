@@ -74,9 +74,7 @@ class Contact extends Component {
             <div className="row d-block">
 
                 <div className="d-flex justify-content-center">
-                    <div className="">
-                        <input type="checkbox"  onClick={this.setPublic}/>
-                    </div>
+
                     <div className="col-6">
                         <h2>Info</h2>
                         <p>Aplikacja została stworzona na cel pracy inżynierskiej</p>

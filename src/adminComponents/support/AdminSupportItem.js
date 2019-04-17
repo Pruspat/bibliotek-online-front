@@ -19,10 +19,11 @@ class AdminSupportItem extends Component {
     componentDidMount() {
         this.setState({content: this.props.support.content});
         console.log("itemy" + this.props.support)
+        console.log("worker" + this.props.support.workerId)
     }
 
 
-    take(){
+    take() {
 
         window.location.reload(true);
 
@@ -32,43 +33,45 @@ class AdminSupportItem extends Component {
             'Authorization': 'Bearer ' + this.state.token[1]
         }
 
-        axios.post('http://localhost:8081/support/getTask', this.state.content,{headers: headers}).then(resp => {
+        axios.post('http://localhost:8081/support/getTask', this.state.content, {headers: headers}).then(resp => {
             console.log(resp.data);
         });
     }
 
 
-
     render() {
 
         // if (this.props.support.status === false) {
-        if ( false) {
+        if (typeof this.props.support.workerId === typeof 12) {
             return (
-                <div
-                    className="mb-3 pb-2 pt-2 border border-dark mt-3 col-12 d-flex  align-items-center">
+                <div className="">
                     {/*<div className="col-1" name="customerName">{this.props.support.customerName}</div>*/}
                     {/*<div className="col 1" name="customerSurname">{this.props.support.customerSurname}</div>*/}
                     {/*<div className="col-3" style={{"overflow-wrap": "break-word"}}*/}
-                         {/*name="content">{this.props.support.content}</div>*/}
+                    {/*name="content">{this.props.support.content}</div>*/}
                     {/*<button className="btn btn-danger col-3"*/}
-                            {/*onClick={this.reply}>Odpowiedz*/}
+                    {/*onClick={this.reply}>Odpowiedz*/}
                     {/*</button>*/}
                 </div>
             );
         } else {
-            return (
 
-                <div className="col-12 p-0">
 
-                    <div className="mb-3 pb-2 pt-2 border border-dark mt-3 col-12 d-flex  align-items-center">
-                        <div className="col-2" name="customerName">{this.props.support.customerName}</div>
-                        <div className="col 1" name="customerSurname">{this.props.support.customerSurname}</div>
-                        <div className="col-3" style={{"overflow-wrap": "break-word"}}
-                             name="content">{this.props.support.content}</div>
-                        <div className="btn btn-success col-3" onClick={this.take}>Przemij korespondencje</div>
+            if (true) {
+                return (
+
+                    <div className="col-12 p-0">
+
+                        <div className="mb-3 pb-2 pt-2 border border-dark mt-3 col-12 d-flex  align-items-center">
+                            <div className="col-2" name="customerName">{this.props.support.customerName}</div>
+                            <div className="col 1" name="customerSurname">{this.props.support.customerSurname}</div>
+                            <div className="col-3" style={{"overflow-wrap": "break-word"}}
+                                 name="content">{this.props.support.content}</div>
+                            <div className="btn btn-success col-3" onClick={this.take}>Przemij korespondencje</div>
+                        </div>
                     </div>
-                </div>
-            );
+                );
+            }
         }
     }
 }

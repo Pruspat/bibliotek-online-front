@@ -33,7 +33,7 @@ class UserBorrowsItem extends Component {
             return (
 
                 <form
-                    className="mb-3 border border-dark rounded mt-3 col-5 d-flex justify-content-center  align-items-center flex-column">
+                    className="mb-3 border border-dark rounded mt-3 col-lg-5 d-flex justify-content-center  align-items-center flex-column">
 
                     <div className="d-flex mt-3">
                         <div name="name">

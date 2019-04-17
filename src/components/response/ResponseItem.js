@@ -18,11 +18,11 @@ class ResponseItem extends Component {
             return (
                 <div className="pb-3">
                     <div className="d-flex border border-success p-3 w-100 justify-content-between" style={{background:"antiquewhite"}}>
-                        <div className="col col-lg-6 border-right border-success text-center">
+                        <div className="col-6 col-lg-6 border-right border-success text-center" style={{"overflow-wrap": "break-word"}}>
                             {this.props.replys.content}
                         </div>
 
-                        <div className="col col-lg-6 text-center border-success">
+                        <div className="col-6 col-lg-6 text-center border-success" style={{"overflow-wrap": "break-word"}}>
                             {this.props.replys.replay}
 
                         </div>
@@ -33,11 +33,11 @@ class ResponseItem extends Component {
             return (
                 <div className="pb-3">
                     <div className="d-flex border border-success p-3 w-100 justify-content-between">
-                        <div className="col col-lg-6 border-right border-success text-center">
+                        <div className="col-6 col-lg-6 border-right border-success text-center" style={{"overflow-wrap": "break-word"}}>
                             {this.props.replys.content}
                         </div>
 
-                        <div className="col col-lg-6 text-center border-success">
+                        <div className="col-6 col-lg-6 text-center border-success" style={{"overflow-wrap": "break-word"}}>
                             {this.props.replys.replay}
 
                         </div>

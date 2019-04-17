@@ -113,19 +113,19 @@ class BorrowItem extends Component {
                             <div className="d-flex border border-success p-3 w-100 justify-content-between">
 
 
-                                <div className="col col-lg-2 border-right border-success">
+                                <div className="col-2 col-lg-2 border-right border-success">
                                     {this.props.borrow.title}
                                 </div>
 
-                                <div className="col col-lg-2 border-right border-success">
+                                <div className="col-2 col-lg-2 border-right border-success">
                                     {this.timeConverter(this.props.borrow.dateOfBorrow)}
                                 </div>
 
-                                <div className="col col-lg-2 border-right border-success">
+                                <div className="col-2 col-lg-2 border-right border-success">
                                     {this.timeConverter(this.props.borrow.dateOfReturn)}
                                 </div>
 
-                                <div className="col col-lg-2">
+                                <div className="col-2 col-lg-2">
                                     {this.props.borrow.status}
                                 </div>
                             </div>
@@ -177,22 +177,22 @@ class BorrowItem extends Component {
                             <div className="d-flex border border-success p-3 w-100 justify-content-between">
 
 
-                                <div className="col col-lg-1 border-right border-success w-100">
+                                <div className="col-2 col-lg-1 border-right border-success w-100">
 
                                 </div>
-                                <div className="col col-lg-2 border-right border-success">
+                                <div className="col-2 col-lg-2 border-right border-success">
                                     {this.props.borrow.title}
                                 </div>
 
-                                <div className="col col-lg-2 border-right border-success">
+                                <div className="col-2 col-lg-2 border-right border-success">
                                     {this.timeConverter(this.props.borrow.dateOfBorrow)}
                                 </div>
 
-                                <div className="col col-lg-2 border-right border-success">
+                                <div className="col-2 col-lg-2 border-right border-success">
                                     {this.timeConverter(this.props.borrow.dateOfReturn)}
                                 </div>
 
-                                <div className="col col-lg-2">
+                                <div className="col-2 col-lg-2">
                                     {this.props.borrow.status}
                                 </div>
                             </div>
@@ -209,23 +209,23 @@ class BorrowItem extends Component {
                     <div className="d-flex border border-success p-3 w-100 justify-content-between">
 
 
-                        <div className="col col-lg-1 border-right border-success w-100">
+                        <div className="col-2 col-lg-1 border-right border-success w-100">
                             {this.props.borrow.id}
                         </div>
 
-                        <div className="col col-lg-2 border-right border-success">
+                        <div className="col-2 col-lg-2 border-right border-success">
                             {this.props.borrow.title}
                         </div>
 
-                        <div className="col col-lg-2 border-right border-success">
+                        <div className="col-2 col-lg-2 border-right border-success">
                             {this.timeConverter(this.props.borrow.dateOfBorrow)}
                         </div>
 
-                        <div className="col col-lg-2 border-right border-success">
+                        <div className="col-2 col-lg-2 border-right border-success">
                             {this.timeConverter(this.props.borrow.dateOfReturn)}
                         </div>
 
-                        <div className="col col-lg-2">
+                        <div className="col-2 col-lg-2">
                             {this.props.borrow.status}
                         </div>
                     </div>
