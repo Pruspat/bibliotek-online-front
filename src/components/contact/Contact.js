@@ -75,7 +75,7 @@ class Contact extends Component {
 
                 <div className="d-flex justify-content-center">
 
-                    <div className="col-6">
+                    <div className="col-lg-6 col-12 ">
                         <h2>Info</h2>
                         <p>Aplikacja została stworzona na cel pracy inżynierskiej</p>
                         <p>Przygotował: Patryk Prus</p>
@@ -92,7 +92,7 @@ class Contact extends Component {
 
 
                 <div className="row pt-5 pb-5 d-flex justify-content-center">
-                    <div className="col-6">
+                    <div className="col-12 col-lg-6">
                         <h3 className="d-flex justify-content-center pb-5">Kontakt z pracownikiem</h3>
                         <form className="d-flex flex-column justify-content-center" onSubmit={this.handleSubmit}>
                             <div className="d-flex justify-content-center">

@@ -67,16 +67,16 @@ class Header extends Component {
                             <a id="Borrow" className="nav-link" href="#" onClick={this.handleClick}>Lista wpożyczeń</a>
                         </li>
                         <li className="nav-item active">
-                            <a id="Contact" className="nav-link" href="#" onClick={this.handleClick}>Kontakt</a>
+                            <a id="UserBorrows" className="nav-link" href="#" onClick={this.handleClick}>Wypożyczenia użytkowników</a>
                         </li>
                         <li className="nav-item active">
                             <a id="Replys" className="nav-link" href="#" onClick={this.handleClick}>Rozpoczęte wątki</a>
                         </li>
                         <li className="nav-item active">
-                            <a id="UserBorrows" className="nav-link" href="#" onClick={this.handleClick}>Wypożyczenia użytkowników</a>
+                            <a id="Settings" className="nav-link" href="#" onClick={this.handleClick}>Ustawienia konta</a>
                         </li>
                         <li className="nav-item active">
-                            <a id="Settings" className="nav-link" href="#" onClick={this.handleClick}>Ustawienia konta</a>
+                            <a id="Contact" className="nav-link" href="#" onClick={this.handleClick}>Kontakt</a>
                         </li>
                     </ul>
 

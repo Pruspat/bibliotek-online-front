@@ -52,11 +52,11 @@ class ConstElement extends Component {
                 </div>);
         } else if (this.props.page === "Main") {
             return (
-                <div className="container">
-                    <h2>Witaj w naszej bibliotece !</h2>
-                    <p>Zapraszamy do skorzystania z naszej różnorodnej oferty.</p>
-                    <p>Zasady użytkowania naszego portalu znajdziesz pod odnośnikiem: <a href="#">Zasady
-                        użytkowania</a></p>
+                <div className="container d-flex justify-content-center flex-column" style={{"height":"600px"}}>
+                    <img src="https://uoch.edu.pk/wp-content/uploads/2018/01/library-banner.jpg" className="w-100 "/>
+                    <h2 className="text-center">System wspomagający prowadzenie biblioteki</h2>
+                    <p className="text-center">Projekt ten powstał na potrzeby realizacji tematu pracy inżynierskiej dla Państwowej Wyższej Szkoły Zawodowej
+                        kierunku Informatyka specjalność Inżynieria Systemów Informatycznych.</p>
                 </div>);
         } else if (this.props.page === "Register") {
             return (
@@ -80,11 +80,11 @@ class ConstElement extends Component {
                 </div>);
         }else{
             return (
-                <div className="container">
-                    <h2>Witaj w naszej bibliotece !</h2>
-                    <p>Zapraszamy do skorzystania z naszej różnorodnej oferty.</p>
-                    <p>Zasady użytkowania naszego portalu znajdziesz pod odnośnikiem: <a href="#">Zasady
-                        użytkowania</a></p>
+                <div className="container d-flex justify-content-around flex-column" style={{"height":"600px"}}>
+                    <img src="https://uoch.edu.pk/wp-content/uploads/2018/01/library-banner.jpg" className="w-100 "/>
+                    <h2 className="text-center">System wspomagający prowadzenie biblioteki</h2>
+                    <p className="text-center">Projekt ten powstał na potrzeby realizacji tematu pracy inżynierskiej dla Państwowej Wyższej Szkoły Zawodowej
+                        kierunku Informatyka specjalność Inżynieria Systemów Informatycznych.</p>
                 </div>);
         }
     }

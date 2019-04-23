@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 class Footer extends Component {
     render() {
         return (
-            <div className="container bg-primary d-flex justify-content-center text-white rounded-bottom">
-                Patryk Prus Praca inżynierska Wspomaganie Biblioteki Online
+            <div className="container bg-primary d-flex justify-content-center text-white rounded-bottom text-center">
+                Praca inżynierska przygotowana przez Patryka Prusa
             </div>
         );
     }

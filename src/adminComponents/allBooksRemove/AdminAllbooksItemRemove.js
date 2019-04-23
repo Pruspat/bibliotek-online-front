@@ -43,7 +43,7 @@ class AdminAllbooksItemRemove extends Component {
                   className="mb-3 border border-dark rounded mt-3 col-5 d-flex justify-content-center  align-items-center flex-column">
 
                 <div className="d-flex mt-3">
-                    <img alt="zdj ksiązki" src="book.jpg" style={{width: 80},{height:80}} className="pr-5"/>
+                    <img alt="zdj ksiązki" src={this.props.book.bookEntity.img} style={{width: 80},{height:80}} className="pr-5"/>
                     <div className="">
                         <div name="authorName">
                             <span>Autor: </span>{this.props.book.authorEntityList[0].name}{this.props.book.authorEntityList[0].surname}{this.props.book.authorSurname}
