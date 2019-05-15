@@ -39,6 +39,8 @@ class App extends Component {
                console.log("app response role: " + resp.data);
                this.role();
            });
+       }else{
+           this.setState({isLoading:false})
        }
     }
 

@@ -74,6 +74,12 @@ class Login extends Component {
 
                                     </div>
 
+                                    <div>
+                                        <h5>Przykładowe dane do logowania:</h5>
+                                        <p>Email: admin@test.pl</p>
+                                        <p>Hasło: admin</p>
+                                    </div>
+
                                     <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
                                         Zaloguj się
                                     </button>
